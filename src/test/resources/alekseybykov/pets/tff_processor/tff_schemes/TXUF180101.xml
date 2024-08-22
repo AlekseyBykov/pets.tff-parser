@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<tff_scheme marker="UF" version="TXUF180101">
+	<document description="">
+		<metadata>
+			<section marker="FK" mandatory="true" description="">
+				<fields>
+					<field name="NUM_VER" position="1" mandatory="true" description="">
+						<validator type="string" length="10" condition="ltoreq"/>
+					</field>
+					<field name="FORMER" position="2" mandatory="false" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="FORM_VER" position="3" mandatory="false" description="">
+						<validator type="string" length="10" condition="ltoreq"/>
+					</field>
+					<field name="NORM_DOC" position="4" mandatory="false" description="">
+						<validator type="string" length="250" condition="ltoreq"/>
+					</field>
+				</fields>
+			</section>
+			<section marker="FROM" mandatory="true" description="">
+				<fields>
+					<field name="BUDG_LEVEL" position="1" mandatory="true" description="">
+						<validator type="string" length="1" condition="fixed"/>
+					</field>
+					<field name="KOD_UBP" position="2" mandatory="true" description="">
+						<validator type="string" length="8" condition="ltoreq"/>
+					</field>
+					<field name="NAME_UBP" position="3" mandatory="true" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+				</fields>
+			</section>
+			<section marker="TO" mandatory="true" description="">
+				<fields>
+					<field name="KOD_TOFK" position="1" mandatory="true" description="">
+						<validator type="string" length="4" condition="fixed"/>
+					</field>
+					<field name="NAME_TOFK" position="2" mandatory="true" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+				</fields>
+			</section>
+			<section marker="SECURE" mandatory="false" description="">
+				<fields>
+					<field name="LEVEL" position="1" mandatory="true" description="">
+						<validator type="string" length="1" condition="fixed"/>
+					</field>
+					<field name="CAUSE" position="2" mandatory="false" description="">
+						<validator type="string" length="150" condition="ltoreq"/>
+					</field>
+				</fields>
+			</section>
+		</metadata>
+		<data mandatory="true" description="">
+			<header>
+				<fields>
+					<field name="GUID_FK" position="1" mandatory="false" description="">
+						<validator type="guid" length="36" condition="fixed"/>
+					</field>
+					<field name="NOM_UF" position="2" mandatory="true" description="">
+						<validator type="string" length="15" condition="ltoreq"/>
+					</field>
+					<field name="DATE_UF" position="3" mandatory="true" description="">
+						<validator type="date" length="10" condition="fixed"/>
+					</field>
+					<field name="NAME_UBP" position="4" mandatory="false" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+					<field name="KOD_UBP" position="5" mandatory="false" description="">
+						<validator type="string" length="8" condition="ltoreq"/>
+					</field>
+					<field name="LS_UBP" position="6" mandatory="false" description="">
+						<validator type="string" length="11" condition="fixed"/>
+					</field>
+					<field name="NAME_GRS" position="7" mandatory="false" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+					<field name="GLAVA_GRS" position="8" mandatory="false" description="">
+						<validator type="string" length="3" condition="fixed"/>
+					</field>
+					<field name="NAME_BUD" position="9" mandatory="true" description="">
+						<validator type="string" length="512" condition="ltoreq"/>
+					</field>
+					<field name="NAME_UBP_FO" position="10" mandatory="false" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+					<field name="OKPO_FO" position="11" mandatory="false" description="">
+						<validator type="string" length="8" condition="fixed"/>
+					</field>
+					<field name="LS_FO" position="12" mandatory="false" description="">
+						<validator type="string" length="11" condition="fixed"/>
+					</field>
+					<field name="NAME_TOFK" position="13" mandatory="true" description="">
+						<validator type="string" length="2000" condition="ltoreq"/>
+					</field>
+					<field name="KOD_TOFK" position="14" mandatory="true" description="">
+						<validator type="string" length="4" condition="fixed"/>
+					</field>
+					<field name="FUND_SOURCE" position="15" mandatory="false" description="">
+						<validator type="string" length="1" condition="fixed"/>
+					</field>
+					<field name="NOM_ZF" position="16" mandatory="false" description="">
+						<validator type="string" length="15" condition="ltoreq"/>
+					</field>
+					<field name="DATE_ZF" position="17" mandatory="false" description="">
+						<validator type="date" length="10" condition="fixed"/>
+					</field>
+					<field name="CNAME_PL" position="18" mandatory="false" description="">
+						<validator type="string" length="500" condition="ltoreq"/>
+					</field>
+					<field name="INN_PL" position="19" mandatory="false" description="">
+						<validator type="string" length="12" condition="ltoreq"/>
+					</field>
+					<field name="KPP_PL" position="20" mandatory="false" description="">
+						<validator type="string" length="9" condition="ltoreq"/>
+					</field>
+					<field name="PASP" position="21" mandatory="false" description="">
+						<validator type="string" length="1000" condition="ltoreq"/>
+					</field>
+					<field name="BS_PL" position="22" mandatory="false" description="">
+						<validator type="string" length="20" condition="fixed"/>
+					</field>
+					<field name="DOL_RUK" position="23" mandatory="false" description="">
+						<validator type="string" length="100" condition="ltoreq"/>
+					</field>
+					<field name="NAME_RUK" position="24" mandatory="false" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="DOL_ISP" position="25" mandatory="true" description="">
+						<validator type="string" length="100" condition="ltoreq"/>
+					</field>
+					<field name="NAME_ISP" position="26" mandatory="true" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="TEL_ISP" position="27" mandatory="true" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="DATE_POD" position="28" mandatory="false" description="">
+						<validator type="date" length="10" condition="fixed"/>
+					</field>
+					<field name="DOL_RUK_TOFK" position="29" mandatory="false" description="">
+						<validator type="string" length="100" condition="ltoreq"/>
+					</field>
+					<field name="NAME_RUK_TOFK" position="30" mandatory="false" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="DOL_ISP_TOFK" position="31" mandatory="false" description="">
+						<validator type="string" length="100" condition="ltoreq"/>
+					</field>
+					<field name="NAME_ISP_TOFK" position="32" mandatory="false" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="TEL_ISP_TOFK" position="33" mandatory="false" description="">
+						<validator type="string" length="50" condition="ltoreq"/>
+					</field>
+					<field name="DATE_TOFK" position="34" mandatory="false" description="">
+						<validator type="date" length="10" condition="fixed"/>
+					</field>
+				</fields>
+			</header>
+			<tables>
+				<table marker="UFPP" mandatory="true" multiple="true" description="">
+					<fields>
+						<field name="LINE_NOM" position="1" mandatory="true" description="">
+							<validator type="integer" length="7" condition="ltoreq"/>
+						</field>
+						<field name="GUID" position="2" mandatory="false" description="">
+							<validator type="guid" length="36" condition="fixed"/>
+						</field>
+						<field name="KOD_DOC" position="3" mandatory="false" description="">
+							<validator type="string" length="2" condition="fixed"/>
+						</field>
+						<field name="NAME_PP" position="4" mandatory="false" description="">
+							<validator type="string" length="160" condition="ltoreq"/>
+						</field>
+						<field name="NOM_PP" position="5" mandatory="false" description="">
+							<validator type="string" length="20" condition="ltoreq"/>
+						</field>
+						<field name="DATE_PP" position="6" mandatory="false" description="">
+							<validator type="date" length="10" condition="fixed"/>
+						</field>
+						<field name="CNAME_PP" position="7" mandatory="false" description="">
+							<validator type="string" length="500" condition="ltoreq"/>
+						</field>
+						<field name="INN_PP" position="8" mandatory="false" description="">
+							<validator type="string" length="12" condition="ltoreq"/>
+						</field>
+						<field name="KPP_PP" position="9" mandatory="false" description="">
+							<validator type="string" length="9" condition="ltoreq"/>
+						</field>
+						<field name="OKATO" position="10" mandatory="false" description="">
+							<validator type="string" length="8" condition="fixed"/>
+						</field>
+						<field name="KBK" position="11" mandatory="false" description="">
+							<validator type="string" length="20" condition="fixed"/>
+						</field>
+						<field name="TYPE_KBK" position="12" mandatory="false" description="">
+							<validator type="string" length="2" condition="fixed"/>
+						</field>
+						<field name="ADD_KLASS" position="13" mandatory="false" description="">
+							<validator type="string" length="25" condition="ltoreq"/>
+						</field>
+						<field name="SUM_PP" position="14" mandatory="true" description="">
+							<validator type="double" length="18.2" condition="ltoreq"/>
+						</field>
+						<field name="PURPOSE" position="15" mandatory="false" description="">
+							<validator type="string" length="500" condition="ltoreq"/>
+						</field>
+						<field name="NOM_ZR" position="16" mandatory="false" description="">
+							<validator type="string" length="15" condition="ltoreq"/>
+						</field>
+						<field name="DATE_ZR" position="17" mandatory="false" description="">
+							<validator type="date" length="10" condition="fixed"/>
+						</field>
+						<field name="NOTE" position="18" mandatory="false" description="">
+							<validator type="string" length="254" condition="ltoreq"/>
+						</field>
+					</fields>
+				</table>
+				<table marker="UFPP_N" mandatory="true" multiple="true" description="">
+					<fields>
+						<field name="LINE_NOM" position="1" mandatory="true" description="">
+							<validator type="integer" length="7" condition="ltoreq"/>
+						</field>
+						<field name="CNAME_UBP" position="2" mandatory="false" description="">
+							<validator type="string" length="160" condition="ltoreq"/>
+						</field>
+						<field name="INN_UBP" position="3" mandatory="false" description="">
+							<validator type="string" length="12" condition="ltoreq"/>
+						</field>
+						<field name="KPP_UBP" position="4" mandatory="false" description="">
+							<validator type="string" length="9" condition="ltoreq"/>
+						</field>
+						<field name="OKATO" position="5" mandatory="false" description="">
+							<validator type="string" length="8" condition="fixed"/>
+						</field>
+						<field name="LS_UBP" position="6" mandatory="false" description="">
+							<validator type="string" length="11" condition="fixed"/>
+						</field>
+						<field name="KBK" position="7" mandatory="false" description="">
+							<validator type="string" length="20" condition="fixed"/>
+						</field>
+						<field name="TYPE_KBK" position="8" mandatory="false" description="">
+							<validator type="string" length="2" condition="fixed"/>
+						</field>
+						<field name="ADD_KLASS" position="9" mandatory="false" description="">
+							<validator type="string" length="25" condition="ltoreq"/>
+						</field>
+						<field name="SUM" position="10" mandatory="false" description="">
+							<validator type="double" length="18.2" condition="ltoreq"/>
+						</field>
+						<field name="PURPOSE" position="11" mandatory="false" description="">
+							<validator type="string" length="210" condition="ltoreq"/>
+						</field>
+						<field name="FUND_SOURCE" position="12" mandatory="false" description="">
+							<validator type="string" length="1" condition="fixed"/>
+						</field>
+					</fields>
+				</table>
+			</tables>
+		</data>
+	</document>
+</tff_scheme>
