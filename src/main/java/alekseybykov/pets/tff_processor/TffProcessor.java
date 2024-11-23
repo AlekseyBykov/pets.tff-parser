@@ -15,7 +15,7 @@ import java.io.InputStream;
 import java.nio.charset.Charset;
 
 @Component
-public class TffFileProcessor implements ITffFileProcessor {
+public class TffProcessor implements ITffProcessor {
 
     private static final String RESOURCE_PATH = "/alekseybykov/pets/tff_processor/tff_schemes";
 
@@ -25,7 +25,7 @@ public class TffFileProcessor implements ITffFileProcessor {
     private final ITffNamingService namingService;
     private final ITffSerializer serializer;
 
-    public TffFileProcessor(
+    public TffProcessor(
             ITffSchemeParser schemeParser,
             ITffFileParser fileParser,
             ITffFileValidator validator,

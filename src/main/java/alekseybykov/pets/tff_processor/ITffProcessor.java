@@ -5,7 +5,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.nio.charset.Charset;
 
-public interface ITffFileProcessor {
+public interface ITffProcessor {
 
     TffFile process(MultipartFile file, String documentMarker, String schemeName);
 

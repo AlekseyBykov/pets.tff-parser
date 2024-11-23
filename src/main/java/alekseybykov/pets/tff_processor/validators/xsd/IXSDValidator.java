@@ -7,5 +7,7 @@ import java.io.IOException;
 
 public interface IXSDValidator {
 
-    boolean isValidScheme(File xml, File xsd) throws IOException, SAXException;
+    void validate(File xml, File xsd);
+
+    boolean isValidScheme(File xml, File xsd) throws Exception;
 }

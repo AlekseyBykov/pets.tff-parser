@@ -12,6 +12,14 @@ public class TffMetadata {
     private String marker;
     private List<TffField> fields = new ArrayList<>();
 
+    public TffMetadata() {
+    }
+
+    TffMetadata(String marker, List<TffField> fields) {
+        this.marker = marker;
+        this.fields = fields;
+    }
+
     public static TffMetadata newMetadata(
             List<String> fields,
             String marker
@@ -30,6 +38,10 @@ public class TffMetadata {
         return metadata;
     }
 
+    public static Builder builder() {
+        return new Builder();
+    }
+
     public String getFieldValueByName(String name) {
         TffField field = getFieldByName(name);
         return field != null
@@ -44,7 +56,7 @@ public class TffMetadata {
                 .orElse(null);
     }
 
-    public void addField(String name, String value) {
+    public void addField(String name, Object value) {
         TffField field = new TffField();
         field.setName(name);
         field.setValue(Objects.toString(value, StringUtils.EMPTY));
@@ -89,5 +101,31 @@ public class TffMetadata {
                 marker,
                 fields
         );
+    }
+
+    public static class Builder {
+        private String marker;
+        private final List<TffField> fields = new ArrayList<>();
+
+        Builder() {
+        }
+
+        public Builder marker(String marker) {
+            this.marker = marker;
+            return this;
+        }
+
+        public Builder field(String name, Object value) {
+            TffField field = new TffField();
+            field.setName(name);
+            field.setValue(Objects.toString(value, StringUtils.EMPTY));
+            fields.add(field);
+
+            return this;
+        }
+
+        public TffMetadata build() {
+            return new TffMetadata(this.marker, this.fields);
+        }
     }
 }

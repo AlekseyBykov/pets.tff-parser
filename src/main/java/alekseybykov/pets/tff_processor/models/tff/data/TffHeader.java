@@ -9,8 +9,17 @@ import java.util.Objects;
 
 public class TffHeader {
 
+
     private String marker;
     private List<TffField> fields = new ArrayList<>();
+
+    public TffHeader() {
+    }
+
+    public TffHeader(String marker, List<TffField> fields) {
+        this.marker = marker;
+        this.fields = fields;
+    }
 
     public static TffHeader newHeader(List<String> fields, String marker) {
         TffHeader header = new TffHeader();
@@ -26,6 +35,10 @@ public class TffHeader {
 
         header.setMarker(marker);
         return header;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     public String getFieldValueByName(String name) {
@@ -87,5 +100,32 @@ public class TffHeader {
                 marker,
                 fields
         );
+    }
+
+    public static class Builder {
+        private String marker;
+        private final List<TffField> fields = new ArrayList<>();
+
+        Builder() {
+        }
+
+        public Builder marker(String marker) {
+            this.marker = marker;
+            return this;
+        }
+
+        public Builder field(String name, Object value) {
+            TffField field = new TffField();
+            field.setName(name);
+            field.setValue(Objects.toString(value, StringUtils.EMPTY));
+
+            fields.add(field);
+
+            return this;
+        }
+
+        public TffHeader build() {
+            return new TffHeader(this.marker, this.fields);
+        }
     }
 }

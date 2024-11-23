@@ -11,6 +11,13 @@ public class TffDocument {
     private TffHeader header;
     private List<TffTable> tables = new ArrayList<>();
 
+    public TffDocument() {
+    }
+
+    public TffDocument(TffHeader header) {
+        this.header = header;
+    }
+
     public List<TffTable> findTablesByMarker(String marker) {
         return tables.stream()
                 .filter(table -> StringUtils.equals(table.getMarker(), marker))

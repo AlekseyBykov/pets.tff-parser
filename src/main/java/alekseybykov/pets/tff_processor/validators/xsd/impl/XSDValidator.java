@@ -1,6 +1,9 @@
 package alekseybykov.pets.tff_processor.validators.xsd.impl;
 
 import alekseybykov.pets.tff_processor.validators.xsd.IXSDValidator;
+import org.apache.commons.collections.CollectionUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.xml.sax.ErrorHandler;
 import org.xml.sax.SAXException;
 import org.xml.sax.SAXParseException;
@@ -18,6 +21,8 @@ import java.util.List;
 
 public class XSDValidator implements IXSDValidator {
 
+    private static final Logger LOG = LoggerFactory.getLogger(XSDValidator.class);
+
     private static final Boolean INVALID_SCHEME = Boolean.FALSE;
     private static final Boolean VALID_SCHEME = Boolean.TRUE;
 
@@ -28,7 +33,23 @@ public class XSDValidator implements IXSDValidator {
     }
 
     @Override
-    public boolean isValidScheme(File xml, File xsd) throws IOException, SAXException {
+    public void validate(File xml, File xsd)  {
+        try {
+            Validator validator = initValidator(xsd);
+
+            XSDErrorHandler errorHandler = XSDErrorHandler.newXSDErrorHandler();
+            validator.setErrorHandler(errorHandler);
+
+            validator.validate(new StreamSource(xml));
+            prepareErrorMessages(errorHandler, xml);
+            printErrorMessages();
+        } catch (Exception e) {
+            printErrorMessages();
+        }
+    }
+
+    @Override
+    public boolean isValidScheme(File xml, File xsd) throws Exception {
         Validator validator = initValidator(xsd);
 
         XSDErrorHandler errorHandler = XSDErrorHandler.newXSDErrorHandler();
@@ -56,10 +77,7 @@ public class XSDValidator implements IXSDValidator {
         return schema.newValidator();
     }
 
-    private void prepareErrorMessages(
-            XSDErrorHandler errorHandler,
-            File scheme
-    ) {
+    private void prepareErrorMessages(XSDErrorHandler errorHandler, File scheme) {
         List<SAXParseException> exceptions = errorHandler.getExceptions();
         exceptions.stream()
                 .map(e -> String.format(
@@ -69,6 +87,12 @@ public class XSDValidator implements IXSDValidator {
                         e.getColumnNumber(),
                         e.getMessage()
                 )).forEach(errorMessages::add);
+    }
+
+    private void printErrorMessages() {
+        if (CollectionUtils.isNotEmpty(errorMessages)) {
+            errorMessages.forEach(LOG::error);
+        }
     }
 
     private static class XSDErrorHandler implements ErrorHandler {

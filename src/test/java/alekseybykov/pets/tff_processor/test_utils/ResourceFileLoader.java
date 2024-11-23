@@ -5,9 +5,12 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.io.File;
 import java.io.IOException;
+import java.net.URISyntaxException;
 import java.nio.file.Files;
 
 public class ResourceFileLoader {
+
+    private static final ClassLoader classLoader = ResourceFileLoader.class.getClassLoader();
 
     public static MultipartFile loadMultipartFile(
             String rootPath,
@@ -25,8 +28,14 @@ public class ResourceFileLoader {
 
     public static File loadFile(String root, String fileName) {
         return new File(
-                ResourceFileLoader.class.getClassLoader().getResource(
-                        String.format("%s/%s", root, fileName)).getFile()
+                classLoader.getResource(
+                        String.format("%s/%s", root, fileName)
+                ).getFile()
         );
+    }
+
+    public static File[] loadFiles(String root) throws URISyntaxException {
+        return new File(classLoader.getResource(root).toURI())
+                .listFiles();
     }
 }

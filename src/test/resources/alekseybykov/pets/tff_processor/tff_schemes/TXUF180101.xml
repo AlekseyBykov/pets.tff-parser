@@ -1,259 +1,259 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <tff_scheme marker="UF" version="TXUF180101">
-	<document description="">
+	<document description="Уведомление об уточнении вида и принадлежности платежа">
 		<metadata>
-			<section marker="FK" mandatory="true" description="">
+			<section marker="FK" mandatory="true" description="Заголовок файла">
 				<fields>
-					<field name="NUM_VER" position="1" mandatory="true" description="">
+					<field name="NUM_VER" position="1" mandatory="true" description="Номер версии формата">
 						<validator type="string" length="10" condition="ltoreq"/>
 					</field>
-					<field name="FORMER" position="2" mandatory="false" description="">
+					<field name="FORMER" position="2" mandatory="false" description="Наименование программного продукта, сформировавшего файл">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="FORM_VER" position="3" mandatory="false" description="">
+					<field name="FORM_VER" position="3" mandatory="false" description="Версия программного продукта">
 						<validator type="string" length="10" condition="ltoreq"/>
 					</field>
-					<field name="NORM_DOC" position="4" mandatory="false" description="">
+					<field name="NORM_DOC" position="4" mandatory="false" description="Ссылка на документ, утверждающий формат файла">
 						<validator type="string" length="250" condition="ltoreq"/>
 					</field>
 				</fields>
 			</section>
-			<section marker="FROM" mandatory="true" description="">
+			<section marker="FROM" mandatory="true" description="Почтовая информация о получателе файла">
 				<fields>
-					<field name="BUDG_LEVEL" position="1" mandatory="true" description="">
+					<field name="BUDG_LEVEL" position="1" mandatory="true" description="Уровень бюджета">
 						<validator type="string" length="1" condition="fixed"/>
 					</field>
-					<field name="KOD_UBP" position="2" mandatory="true" description="">
+					<field name="KOD_UBP" position="2" mandatory="true" description="Код клиента">
 						<validator type="string" length="8" condition="ltoreq"/>
 					</field>
-					<field name="NAME_UBP" position="3" mandatory="true" description="">
+					<field name="NAME_UBP" position="3" mandatory="true" description="Наименование клиента">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
 				</fields>
 			</section>
-			<section marker="TO" mandatory="true" description="">
+			<section marker="TO" mandatory="true" description="Почтовая информация о получателе файла">
 				<fields>
-					<field name="KOD_TOFK" position="1" mandatory="true" description="">
+					<field name="KOD_TOFK" position="1" mandatory="true" description="Уровень бюджета">
 						<validator type="string" length="4" condition="fixed"/>
 					</field>
-					<field name="NAME_TOFK" position="2" mandatory="true" description="">
+					<field name="NAME_TOFK" position="2" mandatory="true" description="Код клиента">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
 				</fields>
 			</section>
-			<section marker="SECURE" mandatory="false" description="">
+			<section marker="SECURE" mandatory="false" description="Реквизиты конфиденциальности">
 				<fields>
-					<field name="LEVEL" position="1" mandatory="true" description="">
+					<field name="LEVEL" position="1" mandatory="true" description="Уровень конфиденциальности">
 						<validator type="string" length="1" condition="fixed"/>
 					</field>
-					<field name="CAUSE" position="2" mandatory="false" description="">
+					<field name="CAUSE" position="2" mandatory="false" description="Пункт перечня">
 						<validator type="string" length="150" condition="ltoreq"/>
 					</field>
 				</fields>
 			</section>
 		</metadata>
-		<data mandatory="true" description="">
+		<data mandatory="true" description="Данные документа 'Уведомление об уточнении вида и принадлежности платежа'">
 			<header>
 				<fields>
-					<field name="GUID_FK" position="1" mandatory="false" description="">
+					<field name="GUID_FK" position="1" mandatory="false" description="Глобальный уникальный идентификатор">
 						<validator type="guid" length="36" condition="fixed"/>
 					</field>
-					<field name="NOM_UF" position="2" mandatory="true" description="">
+					<field name="NOM_UF" position="2" mandatory="true" description="Номер Уведомления">
 						<validator type="string" length="15" condition="ltoreq"/>
 					</field>
-					<field name="DATE_UF" position="3" mandatory="true" description="">
+					<field name="DATE_UF" position="3" mandatory="true" description="Дата Уведомления">
 						<validator type="date" length="10" condition="fixed"/>
 					</field>
-					<field name="NAME_UBP" position="4" mandatory="false" description="">
+					<field name="NAME_UBP" position="4" mandatory="false" description="Наименование ПБС/АДБ/АИФДБ">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
-					<field name="KOD_UBP" position="5" mandatory="false" description="">
+					<field name="KOD_UBP" position="5" mandatory="false" description="Код по Сводному реестру ПБС/АДБ/АИФДБ">
 						<validator type="string" length="8" condition="ltoreq"/>
 					</field>
-					<field name="LS_UBP" position="6" mandatory="false" description="">
+					<field name="LS_UBP" position="6" mandatory="false" description="Номер лицевого счета ПБС/АДБ/АИФДБ">
 						<validator type="string" length="11" condition="fixed"/>
 					</field>
-					<field name="NAME_GRS" position="7" mandatory="false" description="">
+					<field name="NAME_GRS" position="7" mandatory="false" description="Наименование ГРБС/ГАДБ/ГАИФДБ">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
-					<field name="GLAVA_GRS" position="8" mandatory="false" description="">
+					<field name="GLAVA_GRS" position="8" mandatory="false" description="Глава по БК ГРБС/ГАДБ/ГАИФДБ">
 						<validator type="string" length="3" condition="fixed"/>
 					</field>
-					<field name="NAME_BUD" position="9" mandatory="true" description="">
+					<field name="NAME_BUD" position="9" mandatory="true" description="Наименование бюджета">
 						<validator type="string" length="512" condition="ltoreq"/>
 					</field>
-					<field name="NAME_UBP_FO" position="10" mandatory="false" description="">
+					<field name="NAME_UBP_FO" position="10" mandatory="false" description="Наименование финансового органа">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
-					<field name="OKPO_FO" position="11" mandatory="false" description="">
+					<field name="OKPO_FO" position="11" mandatory="false" description="Код по ОКПО">
 						<validator type="string" length="8" condition="fixed"/>
 					</field>
-					<field name="LS_FO" position="12" mandatory="false" description="">
+					<field name="LS_FO" position="12" mandatory="false" description="Лицевой счет финансового органа">
 						<validator type="string" length="11" condition="fixed"/>
 					</field>
-					<field name="NAME_TOFK" position="13" mandatory="true" description="">
+					<field name="NAME_TOFK" position="13" mandatory="true" description="Наименование органа ФК">
 						<validator type="string" length="2000" condition="ltoreq"/>
 					</field>
-					<field name="KOD_TOFK" position="14" mandatory="true" description="">
+					<field name="KOD_TOFK" position="14" mandatory="true" description="Код органа ФК">
 						<validator type="string" length="4" condition="fixed"/>
 					</field>
-					<field name="FUND_SOURCE" position="15" mandatory="false" description="">
+					<field name="FUND_SOURCE" position="15" mandatory="false" description="Вид средств">
 						<validator type="string" length="1" condition="fixed"/>
 					</field>
-					<field name="NOM_ZF" position="16" mandatory="false" description="">
+					<field name="NOM_ZF" position="16" mandatory="false" description="Номер запроса ОрФК">
 						<validator type="string" length="15" condition="ltoreq"/>
 					</field>
-					<field name="DATE_ZF" position="17" mandatory="false" description="">
+					<field name="DATE_ZF" position="17" mandatory="false" description="Дата запроса">
 						<validator type="date" length="10" condition="fixed"/>
 					</field>
-					<field name="CNAME_PL" position="18" mandatory="false" description="">
+					<field name="CNAME_PL" position="18" mandatory="false" description="Наименование плательщика">
 						<validator type="string" length="500" condition="ltoreq"/>
 					</field>
-					<field name="INN_PL" position="19" mandatory="false" description="">
+					<field name="INN_PL" position="19" mandatory="false" description="ИНН плательщика">
 						<validator type="string" length="12" condition="ltoreq"/>
 					</field>
-					<field name="KPP_PL" position="20" mandatory="false" description="">
+					<field name="KPP_PL" position="20" mandatory="false" description="КПП плательщика">
 						<validator type="string" length="9" condition="ltoreq"/>
 					</field>
-					<field name="PASP" position="21" mandatory="false" description="">
+					<field name="PASP" position="21" mandatory="false" description="Паспортные данные плательщика">
 						<validator type="string" length="1000" condition="ltoreq"/>
 					</field>
-					<field name="BS_PL" position="22" mandatory="false" description="">
+					<field name="BS_PL" position="22" mandatory="false" description="Номер банковского счета плательщика">
 						<validator type="string" length="20" condition="fixed"/>
 					</field>
-					<field name="DOL_RUK" position="23" mandatory="false" description="">
+					<field name="DOL_RUK" position="23" mandatory="false" description="Должность руководителя">
 						<validator type="string" length="100" condition="ltoreq"/>
 					</field>
-					<field name="NAME_RUK" position="24" mandatory="false" description="">
+					<field name="NAME_RUK" position="24" mandatory="false" description="ФИО руководителя">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="DOL_ISP" position="25" mandatory="true" description="">
+					<field name="DOL_ISP" position="25" mandatory="true" description="Должность ответственного исполнителя">
 						<validator type="string" length="100" condition="ltoreq"/>
 					</field>
-					<field name="NAME_ISP" position="26" mandatory="true" description="">
+					<field name="NAME_ISP" position="26" mandatory="true" description="ФИО ответственного исполнителя">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="TEL_ISP" position="27" mandatory="true" description="">
+					<field name="TEL_ISP" position="27" mandatory="true" description="Телефон ответственного исполнителя">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="DATE_POD" position="28" mandatory="false" description="">
+					<field name="DATE_POD" position="28" mandatory="false" description="Дата подписания документа">
 						<validator type="date" length="10" condition="fixed"/>
 					</field>
-					<field name="DOL_RUK_TOFK" position="29" mandatory="false" description="">
+					<field name="DOL_RUK_TOFK" position="29" mandatory="false" description="Должность руководителя ОрФК">
 						<validator type="string" length="100" condition="ltoreq"/>
 					</field>
-					<field name="NAME_RUK_TOFK" position="30" mandatory="false" description="">
+					<field name="NAME_RUK_TOFK" position="30" mandatory="false" description="Руководитель ОрФК">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="DOL_ISP_TOFK" position="31" mandatory="false" description="">
+					<field name="DOL_ISP_TOFK" position="31" mandatory="false" description="Должность исполнителя ОрФК">
 						<validator type="string" length="100" condition="ltoreq"/>
 					</field>
-					<field name="NAME_ISP_TOFK" position="32" mandatory="false" description="">
+					<field name="NAME_ISP_TOFK" position="32" mandatory="false" description="Исполнитель ОрФК">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="TEL_ISP_TOFK" position="33" mandatory="false" description="">
+					<field name="TEL_ISP_TOFK" position="33" mandatory="false" description="Телефон исполнителя ОрФК">
 						<validator type="string" length="50" condition="ltoreq"/>
 					</field>
-					<field name="DATE_TOFK" position="34" mandatory="false" description="">
+					<field name="DATE_TOFK" position="34" mandatory="false" description="Дата отметки">
 						<validator type="date" length="10" condition="fixed"/>
 					</field>
 				</fields>
 			</header>
 			<tables>
-				<table marker="UFPP" mandatory="true" multiple="true" description="">
+				<table marker="UFPP" mandatory="true" multiple="true" description="Реквизиты уточняемого платежного документа">
 					<fields>
-						<field name="LINE_NOM" position="1" mandatory="true" description="">
+						<field name="LINE_NOM" position="1" mandatory="true" description="Номер записи">
 							<validator type="integer" length="7" condition="ltoreq"/>
 						</field>
-						<field name="GUID" position="2" mandatory="false" description="">
+						<field name="GUID" position="2" mandatory="false" description="Глобальный идентификатор платежного документа">
 							<validator type="guid" length="36" condition="fixed"/>
 						</field>
-						<field name="KOD_DOC" position="3" mandatory="false" description="">
+						<field name="KOD_DOC" position="3" mandatory="false" description="Код платежного документа">
 							<validator type="string" length="2" condition="fixed"/>
 						</field>
-						<field name="NAME_PP" position="4" mandatory="false" description="">
+						<field name="NAME_PP" position="4" mandatory="false" description="Наименование платежного документа">
 							<validator type="string" length="160" condition="ltoreq"/>
 						</field>
-						<field name="NOM_PP" position="5" mandatory="false" description="">
+						<field name="NOM_PP" position="5" mandatory="false" description="Номер платежного документа">
 							<validator type="string" length="20" condition="ltoreq"/>
 						</field>
-						<field name="DATE_PP" position="6" mandatory="false" description="">
+						<field name="DATE_PP" position="6" mandatory="false" description="Дата платежного документа">
 							<validator type="date" length="10" condition="fixed"/>
 						</field>
-						<field name="CNAME_PP" position="7" mandatory="false" description="">
+						<field name="CNAME_PP" position="7" mandatory="false" description="Наименование получателя">
 							<validator type="string" length="500" condition="ltoreq"/>
 						</field>
-						<field name="INN_PP" position="8" mandatory="false" description="">
+						<field name="INN_PP" position="8" mandatory="false" description="ИНН получателя">
 							<validator type="string" length="12" condition="ltoreq"/>
 						</field>
-						<field name="KPP_PP" position="9" mandatory="false" description="">
+						<field name="KPP_PP" position="9" mandatory="false" description="КПП получателя">
 							<validator type="string" length="9" condition="ltoreq"/>
 						</field>
-						<field name="OKATO" position="10" mandatory="false" description="">
+						<field name="OKATO" position="10" mandatory="false" description="Код по ОКТМО">
 							<validator type="string" length="8" condition="fixed"/>
 						</field>
-						<field name="KBK" position="11" mandatory="false" description="">
+						<field name="KBK" position="11" mandatory="false" description="КБК">
 							<validator type="string" length="20" condition="fixed"/>
 						</field>
-						<field name="TYPE_KBK" position="12" mandatory="false" description="">
+						<field name="TYPE_KBK" position="12" mandatory="false" description="Тип КБК">
 							<validator type="string" length="2" condition="fixed"/>
 						</field>
-						<field name="ADD_KLASS" position="13" mandatory="false" description="">
+						<field name="ADD_KLASS" position="13" mandatory="false" description="Код цели">
 							<validator type="string" length="25" condition="ltoreq"/>
 						</field>
-						<field name="SUM_PP" position="14" mandatory="true" description="">
+						<field name="SUM_PP" position="14" mandatory="true" description="Сумма">
 							<validator type="double" length="18.2" condition="ltoreq"/>
 						</field>
-						<field name="PURPOSE" position="15" mandatory="false" description="">
+						<field name="PURPOSE" position="15" mandatory="false" description="Назначение платежа">
 							<validator type="string" length="500" condition="ltoreq"/>
 						</field>
-						<field name="NOM_ZR" position="16" mandatory="false" description="">
+						<field name="NOM_ZR" position="16" mandatory="false" description="Номер заявки">
 							<validator type="string" length="15" condition="ltoreq"/>
 						</field>
-						<field name="DATE_ZR" position="17" mandatory="false" description="">
+						<field name="DATE_ZR" position="17" mandatory="false" description="Дата заявки">
 							<validator type="date" length="10" condition="fixed"/>
 						</field>
-						<field name="NOTE" position="18" mandatory="false" description="">
+						<field name="NOTE" position="18" mandatory="false" description="Примечание">
 							<validator type="string" length="254" condition="ltoreq"/>
 						</field>
 					</fields>
 				</table>
-				<table marker="UFPP_N" mandatory="true" multiple="true" description="">
+				<table marker="UFPP_N" mandatory="true" multiple="true" description="Уточненные реквизиты">
 					<fields>
-						<field name="LINE_NOM" position="1" mandatory="true" description="">
+						<field name="LINE_NOM" position="1" mandatory="true" description="Номер записи">
 							<validator type="integer" length="7" condition="ltoreq"/>
 						</field>
-						<field name="CNAME_UBP" position="2" mandatory="false" description="">
+						<field name="CNAME_UBP" position="2" mandatory="false" description="Наименование получателя">
 							<validator type="string" length="160" condition="ltoreq"/>
 						</field>
-						<field name="INN_UBP" position="3" mandatory="false" description="">
+						<field name="INN_UBP" position="3" mandatory="false" description="ИНН получателя">
 							<validator type="string" length="12" condition="ltoreq"/>
 						</field>
-						<field name="KPP_UBP" position="4" mandatory="false" description="">
+						<field name="KPP_UBP" position="4" mandatory="false" description="КПП получателя">
 							<validator type="string" length="9" condition="ltoreq"/>
 						</field>
-						<field name="OKATO" position="5" mandatory="false" description="">
+						<field name="OKATO" position="5" mandatory="false" description="Код по ОКТМО">
 							<validator type="string" length="8" condition="fixed"/>
 						</field>
-						<field name="LS_UBP" position="6" mandatory="false" description="">
+						<field name="LS_UBP" position="6" mandatory="false" description="Лицевой счет Получателя">
 							<validator type="string" length="11" condition="fixed"/>
 						</field>
-						<field name="KBK" position="7" mandatory="false" description="">
+						<field name="KBK" position="7" mandatory="false" description="Код по БК">
 							<validator type="string" length="20" condition="fixed"/>
 						</field>
-						<field name="TYPE_KBK" position="8" mandatory="false" description="">
+						<field name="TYPE_KBK" position="8" mandatory="false" description="Тип КБК">
 							<validator type="string" length="2" condition="fixed"/>
 						</field>
-						<field name="ADD_KLASS" position="9" mandatory="false" description="">
+						<field name="ADD_KLASS" position="9" mandatory="false" description="Код цели">
 							<validator type="string" length="25" condition="ltoreq"/>
 						</field>
-						<field name="SUM" position="10" mandatory="false" description="">
+						<field name="SUM" position="10" mandatory="false" description="Сумма">
 							<validator type="double" length="18.2" condition="ltoreq"/>
 						</field>
-						<field name="PURPOSE" position="11" mandatory="false" description="">
+						<field name="PURPOSE" position="11" mandatory="false" description="Назначение платежа">
 							<validator type="string" length="210" condition="ltoreq"/>
 						</field>
-						<field name="FUND_SOURCE" position="12" mandatory="false" description="">
+						<field name="FUND_SOURCE" position="12" mandatory="false" description="Вид средств">
 							<validator type="string" length="1" condition="fixed"/>
 						</field>
 					</fields>

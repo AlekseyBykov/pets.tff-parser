@@ -12,6 +12,14 @@ public class TffTable {
     private String marker;
     private List<TffField> fields = new ArrayList<>();
 
+    public TffTable() {
+    }
+
+    public TffTable(String marker, List<TffField> fields) {
+        this.marker = marker;
+        this.fields = fields;
+    }
+
     public static TffTable newTable(List<String> fields, String marker) {
         TffTable table = new TffTable();
 
@@ -26,6 +34,10 @@ public class TffTable {
 
         table.setMarker(marker);
         return table;
+    }
+
+    public static Builder builder() {
+        return new Builder();
     }
 
     public String getFieldValueByName(String name) {
@@ -87,5 +99,32 @@ public class TffTable {
                 marker,
                 fields
         );
+    }
+
+    public static class Builder {
+        private String marker;
+        private final List<TffField> fields = new ArrayList<>();
+
+        Builder() {
+        }
+
+        public Builder marker(String marker) {
+            this.marker = marker;
+            return this;
+        }
+
+        public Builder field(String name, Object value) {
+            TffField field = new TffField();
+            field.setName(name);
+            field.setValue(Objects.toString(value, StringUtils.EMPTY));
+
+            fields.add(field);
+
+            return this;
+        }
+
+        public TffTable build() {
+            return new TffTable(this.marker, this.fields);
+        }
     }
 }

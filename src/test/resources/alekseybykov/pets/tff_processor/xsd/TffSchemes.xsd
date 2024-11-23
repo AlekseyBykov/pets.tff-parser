@@ -34,7 +34,7 @@
   </xs:complexType>
   <xs:complexType name="metadataType">
     <xs:sequence>
-      <xs:element type="sectionType" name="section" maxOccurs="4" minOccurs="4"/>
+      <xs:element type="sectionType" name="section" maxOccurs="4" minOccurs="3"/>
     </xs:sequence>
   </xs:complexType>
   <xs:complexType name="headerType">
